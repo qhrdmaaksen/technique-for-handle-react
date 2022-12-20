@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import PropsParent from "./etc/props/PropsParent";
 import Counter from "./etc/state/CounterTest";
+import Say from "./etc/state/Say";
+import EventPractice from "./etc/event/EventPractice";
 
 /*const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,13 +15,29 @@ root.render(
   </React.StrictMode>
 );*/
 
-// counter test
+/*// Say test
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+      <Say />
+    </React.StrictMode>
+);*/
+
+//EventPractice test
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+      <EventPractice />
+    </React.StrictMode>
+);
+
+/*// counter test
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
       <Counter />
     </React.StrictMode>
-);
+);*/
 
 /*// props test
 const root = ReactDOM.createRoot(document.getElementById('root'));
