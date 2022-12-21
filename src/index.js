@@ -7,6 +7,7 @@ import PropsParent from "./etc/props/PropsParent";
 import Counter from "./etc/state/CounterTest";
 import Say from "./etc/state/Say";
 import EventPractice from "./etc/event/EventPractice";
+import ValidationSample from "./etc/refTest/ValidationSample";
 
 /*const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,13 +24,21 @@ root.render(
     </React.StrictMode>
 );*/
 
-//EventPractice test
+// validation test
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+      <ValidationSample />
+    </React.StrictMode>
+);
+
+/*//EventPractice test
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
       <EventPractice />
     </React.StrictMode>
-);
+);*/
 
 /*// counter test
 const root = ReactDOM.createRoot(document.getElementById('root'));

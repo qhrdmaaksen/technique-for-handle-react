@@ -17,7 +17,7 @@ const EventPractice = () => {
 		e.preventDefault()
 	}
 
-	const confirmHandler = (e) => {
+	const confirmHandler = () => {
 		alert(`사용자의 이름은 ${username} 입니다. 하고 싶은 말씀은 ${message} 입니다.`)
 		// 초기화
 		setForm({
