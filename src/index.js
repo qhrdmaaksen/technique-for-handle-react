@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import PropsParent from "./etc/props/PropsParent";
-import Counter from "./etc/state/CounterTest";
-import Say from "./etc/state/Say";
-import EventPractice from "./etc/event/EventPractice";
-import ValidationSample from "./etc/refTest/ValidationSample";
+import PropsParent from "./etc/propsSampleStudy/PropsParent";
+import Counter from "./etc/stateSampleStudy/CounterTest";
+import Say from "./etc/stateSampleStudy/Say";
+import EventPractice from "./etc/eventSampleStudy/EventPractice";
+import ValidationSample from "./etc/refSampleStudy/ValidationSample";
+import ScrollBox from "./etc/scrollSampleStudy/ScrollBox";
 
 /*const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,13 +25,21 @@ root.render(
     </React.StrictMode>
 );*/
 
-// validation test
+// scrollBox test
 const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+);
+
+// validation test
+/*const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <React.StrictMode>
       <ValidationSample />
     </React.StrictMode>
-);
+);*/
 
 /*//EventPractice test
 const root = ReactDOM.createRoot(document.getElementById('root'));
