@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, {Component} from "react";
 import ScrollBox from './etc/scrollSampleStudy/ScrollBox'
-import IterationSampleTest from "./etc/realEtc/IterationSampleTest";
+import IterationSampleTest from "./etc/mapListSamepleStudy/IterationSampleTest";
 
 /*function App() {
   return (
