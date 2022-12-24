@@ -14,7 +14,7 @@ const EventPractice = () => {
 		}
 		setForm(nextForm)
 		console.log('username:::',username)
-		e.preventDefault()
+		e.preventDefault();
 	}
 
 	const confirmHandler = () => {
