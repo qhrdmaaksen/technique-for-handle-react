@@ -7,7 +7,29 @@ import LifeCycleSample from "./hello-react-etc/lifeCycleSampleStudy/LifeCycleSam
 import ErrorBoundary from "./hello-react-etc/lifeCycleSampleStudy/ErrorBoundary";
 import Counter from "./hooks-tutorial-etc/useState-etc/Counter";
 import Info from "./hooks-tutorial-etc/useState-etc/Info";
+import ReducerCounter from "./hooks-tutorial-etc/useReducer-etc/ReducerCounter";
+import ReducerInfo from "./hooks-tutorial-etc/useReducer-etc/ReducerInfo";
 
+const App = () => {
+  return (
+      <div>
+        <ReducerInfo />
+      </div>
+  )
+}
+export default App
+
+/* reducer counter test
+const App = () => {
+  return (
+      <div>
+        <ReducerCounter />
+      </div>
+  )
+}
+export default App*/
+
+/* user info visible test
 const App = () => {
   const [visible, setVisible] = useState(false);
 
@@ -23,7 +45,7 @@ const App = () => {
       </div>
   );
 };
-export default App;
+export default App;*/
 
 /* counter test
 const App = () => {
