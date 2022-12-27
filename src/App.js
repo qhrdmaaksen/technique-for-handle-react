@@ -9,7 +9,18 @@ import Counter from "./hooks-tutorial-etc/useState-etc/Counter";
 import Info from "./hooks-tutorial-etc/useState-etc/Info";
 import ReducerCounter from "./hooks-tutorial-etc/useReducer-etc/ReducerCounter";
 import ReducerInfo from "./hooks-tutorial-etc/useReducer-etc/ReducerInfo";
+import AverageUseMemo from "./hooks-tutorial-etc/useMemo-etc/AverageUseMemo";
 
+const App = () => {
+  return (
+      <div>
+        <AverageUseMemo />
+      </div>
+  )
+}
+export default App
+
+/* reducer info test
 const App = () => {
   return (
       <div>
@@ -17,7 +28,7 @@ const App = () => {
       </div>
   )
 }
-export default App
+export default App*/
 
 /* reducer counter test
 const App = () => {
