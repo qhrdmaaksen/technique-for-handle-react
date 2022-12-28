@@ -1,4 +1,4 @@
-import {useCallback, useMemo, useState} from "react";
+import {useCallback, useMemo, useRef, useState} from "react";
 
 /** list 에 number 가 들어오면 평균값에 getAverage 함수로 평균 값 계산하여 반환해줌*/
 const getAverage = (numbers) => {
@@ -10,6 +10,7 @@ const getAverage = (numbers) => {
 const AverageUseMemo = () => {
   const [list, setList] = useState([]);
   const [number, setNumber] = useState("");
+  const inputRef = useRef()
 
   // useCallback 을 사용해 컴포넌트가 처음 렌더링될 때만 함수 생성되도록함
   const onChangeNumber = useCallback((e) => {
@@ -22,6 +23,7 @@ const AverageUseMemo = () => {
     const nextList = list.concat(parseInt(number));
     setList(nextList);
     setNumber("");
+    inputRef.current.focus()
   },[number, list]);
 
 	/** useMemo 를 사용하여 getAverage 함수를 호출할 때 list 가 바뀔 때만 호출되도록 함*/
@@ -29,7 +31,7 @@ const AverageUseMemo = () => {
 
   return (
     <div>
-      <input value={number} onChange={onChangeNumber} />
+      <input value={number} onChange={onChangeNumber} ref={inputRef} />
       <button onClick={onInsert}>등록</button>
       <ul>
         {list.map((value, index) => (

@@ -10,7 +10,17 @@ import Info from "./hooks-tutorial-etc/useState-etc/Info";
 import ReducerCounter from "./hooks-tutorial-etc/useReducer-etc/ReducerCounter";
 import ReducerInfo from "./hooks-tutorial-etc/useReducer-etc/ReducerInfo";
 import AverageUseMemo from "./hooks-tutorial-etc/useMemo-etc/AverageUseMemo";
+import UserInfo from "./hooks-tutorial-etc/customHooks/UserInfo";
 
+const App = () => {
+  return (
+      <div>
+        <UserInfo />
+      </div>
+  )
+}
+export default App
+/* 평균 값 계산기 컴포넌트
 const App = () => {
   return (
       <div>
@@ -18,7 +28,7 @@ const App = () => {
       </div>
   )
 }
-export default App
+export default App*/
 
 /* reducer info test
 const App = () => {
