@@ -1,3 +1,4 @@
+import React from 'react';
 import "./SassComponent.scss";
 const SassComponent = () => {
   return (
