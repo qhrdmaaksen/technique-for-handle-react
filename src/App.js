@@ -11,8 +11,31 @@ import ReducerCounter from "./hooks-tutorial-etc/useReducer-etc/ReducerCounter";
 import ReducerInfo from "./hooks-tutorial-etc/useReducer-etc/ReducerInfo";
 import AverageUseMemo from "./hooks-tutorial-etc/useMemo-etc/AverageUseMemo";
 import UserInfo from "./hooks-tutorial-etc/customHooks/UserInfo";
-import SassComponent from "./componentStyling/SassComponent";
+import SassComponent from "./componentStyling/useSassStudy/SassComponent";
+import CSSModule from "./componentStyling/useCssModuleStudy/CSSModule";
+import StyledComponent from "./componentStyling/useStyledComponentsStudy/StyledComponent";
 
+
+const App = () => {
+  return (
+      <div>
+        <StyledComponent />
+      </div>
+  )
+}
+export default App
+
+/* css module study test
+const App = () => {
+  return (
+      <div>
+        <CSSModule />
+      </div>
+  )
+}
+export default App*/
+
+/* use sass study test
 const App = () => {
   return (
       <div>
@@ -20,7 +43,7 @@ const App = () => {
       </div>
   )
 }
-export default App
+export default App*/
 
 /* useReducer 사용해 유저 정보 입력 test
 const App = () => {
