@@ -16,12 +16,14 @@ import CSSModule from "./etc_study/etc_componentStyling/useCssModuleStudy/CSSMod
 import StyledComponent from "./etc_study/etc_componentStyling/useStyledComponentsStudy/StyledComponent";
 import TodoTemplate from "./TodoApp/todo_components/TodoTemplate";
 import TodoInsert from "./TodoApp/todo_components/TodoInsert";
+import TodoList from "./TodoApp/todo_components/TodoList";
 
 
 const App = () => {
   return (
       <TodoTemplate>
         <TodoInsert />
+        <TodoList />
       </TodoTemplate>
   )
 }
