@@ -1,21 +1,33 @@
 import logo from "./logo.svg";
 import "./App.css";
 import React, { Component, useState } from "react";
-import ScrollBox from "./hello-react-etc/scrollSampleStudy/ScrollBox";
-import IterationSampleTest from "./hello-react-etc/mapListSamepleStudy/IterationSampleTest";
-import LifeCycleSample from "./hello-react-etc/lifeCycleSampleStudy/LifeCycleSample";
-import ErrorBoundary from "./hello-react-etc/lifeCycleSampleStudy/ErrorBoundary";
-import Counter from "./hooks-tutorial-etc/useState-etc/Counter";
-import Info from "./hooks-tutorial-etc/useState-etc/Info";
-import ReducerCounter from "./hooks-tutorial-etc/useReducer-etc/ReducerCounter";
-import ReducerInfo from "./hooks-tutorial-etc/useReducer-etc/ReducerInfo";
-import AverageUseMemo from "./hooks-tutorial-etc/useMemo-etc/AverageUseMemo";
-import UserInfo from "./hooks-tutorial-etc/customHooks/UserInfo";
-import SassComponent from "./componentStyling/useSassStudy/SassComponent";
-import CSSModule from "./componentStyling/useCssModuleStudy/CSSModule";
-import StyledComponent from "./componentStyling/useStyledComponentsStudy/StyledComponent";
+import ScrollBox from "./etc_study/etc_react_hello/scrollSampleStudy/ScrollBox";
+import IterationSampleTest from "./etc_study/etc_react_hello/mapListSamepleStudy/IterationSampleTest";
+import LifeCycleSample from "./etc_study/etc_react_hello/lifeCycleSampleStudy/LifeCycleSample";
+import ErrorBoundary from "./etc_study/etc_react_hello/lifeCycleSampleStudy/ErrorBoundary";
+import Counter from "./etc_study/etc_hooks_tutorial/useState-etc/Counter";
+import Info from "./etc_study/etc_hooks_tutorial/useState-etc/Info";
+import ReducerCounter from "./etc_study/etc_hooks_tutorial/useReducer-etc/ReducerCounter";
+import ReducerInfo from "./etc_study/etc_hooks_tutorial/useReducer-etc/ReducerInfo";
+import AverageUseMemo from "./etc_study/etc_hooks_tutorial/useMemo-etc/AverageUseMemo";
+import UserInfo from "./etc_study/etc_hooks_tutorial/customHooks/UserInfo";
+import SassComponent from "./etc_study/etc_componentStyling/useSassStudy/SassComponent";
+import CSSModule from "./etc_study/etc_componentStyling/useCssModuleStudy/CSSModule";
+import StyledComponent from "./etc_study/etc_componentStyling/useStyledComponentsStudy/StyledComponent";
+import TodoTemplate from "./TodoApp/todo_components/TodoTemplate";
+import TodoInsert from "./TodoApp/todo_components/TodoInsert";
 
 
+const App = () => {
+  return (
+      <TodoTemplate>
+        <TodoInsert />
+      </TodoTemplate>
+  )
+}
+export default App
+
+/* use styled-component study test
 const App = () => {
   return (
       <div>
@@ -23,7 +35,7 @@ const App = () => {
       </div>
   )
 }
-export default App
+export default App*/
 
 /* css module study test
 const App = () => {

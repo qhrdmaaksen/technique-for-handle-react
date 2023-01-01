@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import PropsParent from "./hello-react-etc/propsSampleStudy/PropsParent";
-import Counter from "./hello-react-etc/stateSampleStudy/CounterTest";
-import Say from "./hello-react-etc/stateSampleStudy/Say";
-import EventPractice from "./hello-react-etc/eventSampleStudy/EventPractice";
-import ValidationSample from "./hello-react-etc/refSampleStudy/ValidationSample";
-import ScrollBox from "./hello-react-etc/scrollSampleStudy/ScrollBox";
+import PropsParent from "./etc_study/etc_react_hello/propsSampleStudy/PropsParent";
+import Counter from "./etc_study/etc_react_hello/stateSampleStudy/CounterTest";
+import Say from "./etc_study/etc_react_hello/stateSampleStudy/Say";
+import EventPractice from "./etc_study/etc_react_hello/eventSampleStudy/EventPractice";
+import ValidationSample from "./etc_study/etc_react_hello/refSampleStudy/ValidationSample";
+import ScrollBox from "./etc_study/etc_react_hello/scrollSampleStudy/ScrollBox";
 
 /*const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

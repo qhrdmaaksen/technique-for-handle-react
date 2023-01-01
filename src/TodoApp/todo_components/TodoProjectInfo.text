@@ -1,0 +1,11 @@
+TodoTemplate
+-화면을 가운데에 정렬시켜주고 앱 타이틀(일정관리)를 보여줌
+-children 으로 내부 jsx 를 props 로 받아와서 렌더링함
+TodoInsert
+-새로운 항목을 입력하고 추가할 수 있는 컴포넌트
+-useState 를 사용하여 인풋의 상태를 관리함
+TodoListItem
+-각 할 일 항목에 대한 정보를 보여주는 컴포넌트
+-TodoListItem 은 todo 객체를 props 로 받아와서 상태에 따라 다른 스타일의 UI 를 보여줌
+TodoList
+-TodoListItem 컴포넌트를 배열 내장 함수 map 을 사용하여 여러 개 렌더링해줌
