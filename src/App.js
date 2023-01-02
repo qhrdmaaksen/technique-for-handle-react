@@ -48,10 +48,17 @@ const App = () => {
         nextId.current += 1; // nextId 1씩 더하기
       },[todos])
 
+  /** 스케쥴 삭제 함수
+   * 삭제할 스케쥴의 id 가 들어오면 setTodos 로 기존의 todos 의 id 와
+   * onRemove 함수로 들어온 id 를 제외한 todos 배열을 업데이트 시켜줌*/
+  const onRemove = useCallback((id) => {
+    setTodos(todos.filter(todo => todo.id !== id))
+  },[todos])
+
   return (
       <TodoTemplate>
         <TodoInsert onInsert={onInsert}/>
-        <TodoList todos={todos}/>
+        <TodoList todos={todos} onRemove={onRemove}/>
       </TodoTemplate>
   )
 }
