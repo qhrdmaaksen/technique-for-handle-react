@@ -6,7 +6,7 @@ import {
 import "./TodoListItem.scss";
 import cn from 'classnames';
 
-const TodoListItem = ({todo, onRemove}) => {
+const TodoListItem = ({todo, onRemove, onToggle}) => {
 	const {text, checked, id} = todo;
 
 	/** 삭제 버튼 클릭 시 삭제를 누른 스케쥴 아이디를 onRemove 에 전달*/
@@ -15,9 +15,13 @@ const TodoListItem = ({todo, onRemove}) => {
 		console.log(id)
 	}
 
+	const handlerOnToggle = () => {
+		onToggle(id)
+	}
+
 	return (
 			<div className="TodoListItem">
-				<div className={cn('checkbox',{checked})}>
+				<div className={cn('checkbox',{checked})} onClick={handlerOnToggle}>
 					{checked ? <MdCheckBox /> : <MdCheckBoxOutlineBlank/>}
 					<div className="text">{text}</div>
 				</div>

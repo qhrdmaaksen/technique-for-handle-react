@@ -1,6 +1,6 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, {Component, useCallback, useRef, useState} from "react";
+import React, { Component, useCallback, useRef, useState } from "react";
 import ScrollBox from "./etc_study/etc_react_hello/scrollSampleStudy/ScrollBox";
 import IterationSampleTest from "./etc_study/etc_react_hello/mapListSamepleStudy/IterationSampleTest";
 import LifeCycleSample from "./etc_study/etc_react_hello/lifeCycleSampleStudy/LifeCycleSample";
@@ -18,51 +18,75 @@ import TodoTemplate from "./TodoApp/todo_components/TodoTemplate";
 import TodoInsert from "./TodoApp/todo_components/TodoInsert";
 import TodoList from "./TodoApp/todo_components/TodoList";
 
-
 const App = () => {
   const [todos, setTodos] = useState([
     {
       id: 1,
       text: "리액트의 기초 알아보기",
       checked: true,
-    },{
+    },
+    {
       id: 2,
       text: "컴포넌트 스타일링 해보기",
       checked: true,
-    },{
+    },
+    {
       id: 3,
       text: "일정 관리 앱 만들어보기",
       checked: false,
     },
-  ])
+  ]);
 
-  const nextId = useRef(4)
+  const nextId = useRef(4);
 
-  const onInsert = useCallback((text) => {
-        const todo = {
-          id: nextId.current,
-          text,
-          checked: false,
-        }
-        setTodos(todos.concat(todo));
-        nextId.current += 1; // nextId 1씩 더하기
-      },[todos])
+  const onInsert = useCallback(
+    (text) => {
+      const todo = {
+        id: nextId.current,
+        text,
+        checked: false,
+      };
+      setTodos(todos.concat(todo));
+      nextId.current += 1; // nextId 1씩 더하기
+    },
+    [todos]
+  );
 
   /** 스케쥴 삭제 함수
    * 삭제할 스케쥴의 id 가 들어오면 setTodos 로 기존의 todos 의 id 와
    * onRemove 함수로 들어온 id 를 제외한 todos 배열을 업데이트 시켜줌*/
-  const onRemove = useCallback((id) => {
-    setTodos(todos.filter(todo => todo.id !== id))
-  },[todos])
+  const onRemove = useCallback(
+    (id) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos]
+  );
+
+  /** 배열 내장함수 map 을 사용해 id 를 가지고있는 객체의 checked 값을 반전 시켜줬음
+   * 불변성을 유지하면서 특정 배열 원소를 업데이트해야할때 map 을 사용하면 짧은 코드로 작성 가능
+   * map 함수는 배열을 전체적으로 새로운 형태로 변환해 새로운 배열을 생성함
+   * todo.id 와 현재 파라미터로 사용된 id 값이 같을때 새로운 객체를 생성
+   * id 값이 다를땐 변화를 주지않고 처음 받아왔던 상태 그대로 반환
+   * map 을 사용해 만든 배열에서 변화가 필요한 원소만 업데이트되고 나머지는 그대로 남아있음*/
+  const onToggle = useCallback(
+    (id) => {
+      setTodos(
+        todos.map((todo) => {
+          return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
+        })
+      );
+    },
+    [todos]
+  );
 
   return (
-      <TodoTemplate>
-        <TodoInsert onInsert={onInsert}/>
-        <TodoList todos={todos} onRemove={onRemove}/>
-      </TodoTemplate>
-  )
-}
-export default App
+    <TodoTemplate>
+      <TodoInsert onInsert={onInsert} />
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
+    </TodoTemplate>
+  );
+};
+export default App;
 
 /* use styled-component study test
 const App = () => {
