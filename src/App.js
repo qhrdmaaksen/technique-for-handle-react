@@ -1,6 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
-import React, { Component, useCallback, useRef, useState } from "react";
+import React, {
+  Component,
+  useCallback,
+  useReducer,
+  useRef,
+  useState,
+} from "react";
 import ScrollBox from "./etc_study/etc_react_hello/scrollSampleStudy/ScrollBox";
 import IterationSampleTest from "./etc_study/etc_react_hello/mapListSamepleStudy/IterationSampleTest";
 import LifeCycleSample from "./etc_study/etc_react_hello/lifeCycleSampleStudy/LifeCycleSample";
@@ -18,51 +24,67 @@ import TodoTemplate from "./TodoApp/todo_components/TodoTemplate";
 import TodoInsert from "./TodoApp/todo_components/TodoInsert";
 import TodoList from "./TodoApp/todo_components/TodoList";
 
-const App = () => {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: "리액트의 기초 알아보기",
-      checked: true,
-    },
-    {
-      id: 2,
-      text: "컴포넌트 스타일링 해보기",
-      checked: true,
-    },
-    {
-      id: 3,
-      text: "일정 관리 앱 만들어보기",
+const createBulkTodos = () => {
+  const array = [];
+  for (let i = 1; i <= 2500; i++) {
+    array.push({
+      id: i,
+      text: `할 일 ${i}`,
       checked: false,
-    },
-  ]);
+    });
+  }
+  return array;
+};
+
+const todoReducer = (todos, action) => {
+  switch (action.type) {
+    case "INSERT": // 새로 추가
+      // { type: 'INSERT', todo: { id: 1, text: 'todo', checked: false }}
+      return todos.concat(action.todo);
+    case "REMOVE": // 제거
+      // {type: 'REMOVE', id: 1}
+      return todos.filter((todo) => todo.id !== action.id);
+    case "TOGGLE": // 토글
+      // {type: 'TOGGLE', id: 1}
+      return todos.map((todo) => {
+        return todo.id === action.id
+          ? { ...todo, checked: !todo.checked }
+          : todo;
+      });
+    default:
+      return todos;
+  }
+};
+
+const App = () => {
+  const [todos, dispatch] = useReducer(todoReducer, undefined, createBulkTodos);
 
   // 고유 값으로 사용될 id
   // ref를 사용하여 변수 담기
   const nextId = useRef(4);
 
-  const onInsert = useCallback(
-    (text) => {
-      const todo = {
-        id: nextId.current,
-        text,
-        checked: false,
-      };
-      setTodos(todos => todos.concat(todo));
-      nextId.current += 1; // nextId 1씩 더하기
-    },
-    []
-  );
+  const onInsert = useCallback((text) => {
+    const todo = {
+      id: nextId.current,
+      text,
+      checked: false,
+    };
+    dispatch({
+      type: 'INSERT',
+      todo
+    })
+    nextId.current += 1; // nextId 1씩 더하기
+  }, []);
 
   /** 스케쥴 삭제 함수
    * 삭제할 스케쥴의 id 가 들어오면 setTodos 로 기존의 todos 의 id 와
    * onRemove 함수로 들어온 id 를 제외한 todos 배열을 업데이트 시켜줌*/
-  const onRemove = useCallback(
-    (id) => {
-      setTodos(todos => todos.filter((todo) => todo.id !== id));
-    },
-    []
-  );
+  const onRemove = useCallback((id) => {
+    dispatch({
+      type: 'REMOVE',
+      id
+    })
+  }, []);
 
   /** 배열 내장함수 map 을 사용해 id 를 가지고있는 객체의 checked 값을 반전 시켜줬음
    * 불변성을 유지하면서 특정 배열 원소를 업데이트해야할때 map 을 사용하면 짧은 코드로 작성 가능
@@ -70,16 +92,12 @@ const App = () => {
    * todo.id 와 현재 파라미터로 사용된 id 값이 같을때 새로운 객체를 생성
    * id 값이 다를땐 변화를 주지않고 처음 받아왔던 상태 그대로 반환
    * map 을 사용해 만든 배열에서 변화가 필요한 원소만 업데이트되고 나머지는 그대로 남아있음*/
-  const onToggle = useCallback(
-    (id) => {
-      setTodos(todos =>
-        todos.map((todo) => {
-          return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
-        })
-      );
-    },
-    []
-  );
+  const onToggle = useCallback((id) => {
+    dispatch({
+      type: 'TOGGLE',
+      id
+    })
+  }, []);
 
   return (
     <TodoTemplate>
