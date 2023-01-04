@@ -37,6 +37,8 @@ const App = () => {
     },
   ]);
 
+  // 고유 값으로 사용될 id
+  // ref를 사용하여 변수 담기
   const nextId = useRef(4);
 
   const onInsert = useCallback(
@@ -46,10 +48,10 @@ const App = () => {
         text,
         checked: false,
       };
-      setTodos(todos.concat(todo));
+      setTodos(todos => todos.concat(todo));
       nextId.current += 1; // nextId 1씩 더하기
     },
-    [todos]
+    []
   );
 
   /** 스케쥴 삭제 함수
@@ -57,9 +59,9 @@ const App = () => {
    * onRemove 함수로 들어온 id 를 제외한 todos 배열을 업데이트 시켜줌*/
   const onRemove = useCallback(
     (id) => {
-      setTodos(todos.filter((todo) => todo.id !== id));
+      setTodos(todos => todos.filter((todo) => todo.id !== id));
     },
-    [todos]
+    []
   );
 
   /** 배열 내장함수 map 을 사용해 id 를 가지고있는 객체의 checked 값을 반전 시켜줬음
@@ -70,13 +72,13 @@ const App = () => {
    * map 을 사용해 만든 배열에서 변화가 필요한 원소만 업데이트되고 나머지는 그대로 남아있음*/
   const onToggle = useCallback(
     (id) => {
-      setTodos(
+      setTodos(todos =>
         todos.map((todo) => {
           return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
         })
       );
     },
-    [todos]
+    []
   );
 
   return (
